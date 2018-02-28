@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------------------
--- Title: AreaOfRectangleAndCircle
+-- Title: DrawingShapesInLua
 -- Name: Dante B.
 -- Course: ICS3C
 -- This program will calculate and determine the area of a rectangle and a circle.
@@ -10,81 +10,108 @@
 -- create my local variables
 local areaText
 local textSize = 30
-local myRectangle
-local widthOfRectangle = 350
-local heightOfRectangle = 200
-local areaOfRectangle 
-local myCircle
-local radiusOfCircle = 100 
-local areaOfCircle 
-local areaTextCircle
+local myRoundedRect
+local myTriangle
+local RectangleColor
+local TriangleVerticies
+local TriangleX
+local TriangleY
+local myPentagon
+local PentagonX
+local PentagonY
+local PentagonVertices
+local myOctogon
+local OctogonX
+local OctogonY
+local OctogonVertices
 
--- created a constant for PI
-local PI = 3.14
+-- declare the location of the triangle
+local TriangleX = 500
+local TriangleY = 550
 
--- set the backround colour of my screen. Remember that colours are between 0 and 1
-display.setDefault("background", 28/255, 21/255, 223/255)
+ -- declare triangleverticies
+local TriangleVertices = { 0,30, -20,-50, 60,-30, }
 
--- to remove status bar
-display.setStatusBar(display.HiddenStatusBar)
+-- draw the rounded rectangle
+myRoundedRect = display.newRoundedRect( 150, 60, 150, 50, 12 )
 
--- draw the rectangle that is half the width and height of the screen size.
-myRectangle = display.newRect(0, 0, widthOfRectangle, heightOfRectangle)
+-- draw the triangle
+myTriangle = display.newPolygon( TriangleX, TriangleY, TriangleVertices )
 
--- draw the circle 
-myCircle = display.newCircle( 100, 100, 100 ) 
+-- create rounded rectangle gradient colours
+local RectangleColor = {
+    type = "gradient",
+    color1 = { 1, 0, 0.4 },
+    color2 = { 1, 0, 0, 0.2 },
+    direction = "down"
+}
 
---anchor the rectangle in the top left corner of the screen and set its (x,y) position
-myRectangle.anchorX = 0
-myRectangle.anchorY = 0
-myRectangle.x = 20
-myRectangle.y = 20
+-- created triangle gradient color
+local TriangleColor = {
+    type = "gradient",
+    color1 = { 0, 5, 0.4 },
+    color2 = { 0, 1, 0, 0.2 },
+    direction = "down"
+}
 
---anchor the rectangle in the top left corner of the screen and set its (x,y) position
-myCircle.anchorX = 0
-myCircle.anchorY = 0
-myCircle.x = 20
-myCircle.y = 450
 
--- set the width of the borders
-myRectangle.strokeWidth = 15
-myCircle.strokeWidth = 5
+-- hid the status bar
+display.setStatusBar( display.HiddenStatusBar )
 
--- set the color of the rectangle and circle
-myRectangle:setFillColor(0.3, 0.8, 0.6)
-myCircle:setFillColor( 0.5 )
+-- set the stroke width of my rounded rectangle
+myRoundedRect.strokeWidth = 3
 
--- set the colour of the borders
-myRectangle:setStrokeColor(3, 4, 0.5)
-myCircle:setStrokeColor( 1, 0, 0 )
+-- set the color of my rounded rectangle
+myRoundedRect.fill = RectangleColor
 
--- calculate the area of rectangle and circle
-areaOfRectangle = widthOfRectangle * heightOfRectangle
-areaOfCircle = PI * radiusOfCircle ^ 2
+-- set the stroke color of the rounded rectangle
+myRoundedRect:setStrokeColor( 0, 7, 2 )
 
--- write the area on the screen. Take into consideration the size of the font when positioning it on the screen
-areaText = display.newText("The area of this rectangle with a width of \n" ..
-	widthOfRectangle .. " and a height of " .. heightOfRectangle .. " is " ..
-	areaOfRectangle .. " pixels².", 0, 0, Arial, textSize)
--- write the area on the screen. Take into consideration the size of the font when positioning it on the screen
-areaTextCircle = display.newText("The area of this circle with a radius of \n" ..
-	radiusOfCircle .. " is " ..
-	areaOfCircle .. " pixels².", 0, 0, Arial, textSize)
+-- set the stroke width for my triangle
+myTriangle.strokeWidth = 5
 
--- anchor the text and set its (x,y) position
-areaText.anchorX = 0
-areaText.anchorY = 13
-areaText.x = 10
-areaText.y = display.contentHeight/2
+-- set the stroke color of the Triangle
+myTriangle:setStrokeColor( 0, 0, 9 )
 
--- anchor the text and set its (x,y) position
-areaTextCircle.anchorX = 0
-areaTextCircle.anchorY = 0
-areaTextCircle.x = 10
-areaTextCircle.y = 700
+-- set triangle color
+myTriangle.fill = TriangleColor
 
--- set the color of the newText
-areaText:setTextColor(1, 1, 1)
+-- declare the location of the Pentagon
+local PentagonX = 700
+local PentagonY = 250
 
--- set the color of the newText
-areaTextCircle:setTextColor(1, 1, 0)
+ -- declare  pentagon verticies
+local PentagonVertices = { -250,-250, -250,-390, -400,-550, -550,-390, -550,-250 }
+
+
+-- draw the Pentagon
+myPentagon = display.newPolygon( PentagonX, PentagonY, PentagonVertices )
+
+-- declare the location of the Octogon
+local OctogonX = 200
+local OctogonY = 200
+
+ -- declare  pentagon verticies
+local OctogonVertices = { -40,-60, 20,-60, 60,-20, 60,40, 20,80, -40,80, -80,40, -80,-20 }
+
+
+-- draw the Pentagon
+myOctogon = display.newPolygon( OctogonX, OctogonY, OctogonVertices )
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
