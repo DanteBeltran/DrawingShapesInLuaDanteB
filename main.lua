@@ -24,9 +24,13 @@ local myOctogon
 local OctogonX
 local OctogonY
 local OctogonVertices
+local myBatsymbol
+local BatsymbolX
+local BatsymbolY
+local BatsymbolVertices
 
 -- declare the location of the triangle
-local TriangleX = 500
+local TriangleX = 530
 local TriangleY = 550
 
  -- declare triangleverticies
@@ -54,7 +58,8 @@ local TriangleColor = {
     direction = "down"
 }
 
-
+--
+display.setDefault("background", 100/255, 20/255, 60/255 )
 -- hid the status bar
 display.setStatusBar( display.HiddenStatusBar )
 
@@ -95,8 +100,30 @@ local OctogonY = 200
 local OctogonVertices = { -40,-60, 20,-60, 60,-20, 60,40, 20,80, -40,80, -80,40, -80,-20 }
 
 
--- draw the Pentagon
+-- draw the octagon
 myOctogon = display.newPolygon( OctogonX, OctogonY, OctogonVertices )
+
+-- draw bat symbol
+local BatsymbolX = 250
+local BatsymbolY = 500
+
+ -- declare  pentagon verticies
+local BatsymbolVertices = { 0,-120, 40,-60, 50,-50, 60,-50, 70,-60, 80,-80, 90,-60, 100,-50, 110,-50, 120,-60, 130,-80, 130,-90, 120,-110, 110,-120, 140,-110, 170,-90, 190,-70, 200,-50, 210,-20, 210,10, 200,40, 190,60, 170,80, 140,100, 110,110, 120,100, 130,80, 130,70, 120,50, 110,40, 90,30, 60,30, 30,40, 30,120, 10,90, -1,90, -30,120, -30,40, -60,30, -90,30, -110,40, -120,50, -130,70, -130,80, -120,100, -110,110, -140,100, -170,80, -190,60, -200,40, -210,10, -210,-20, -200,-50, -190,-70, -170,-90, -140,-110, -110,-120, -120,-110, -130,-90, -130,-80, -120,-60, -110,-50, -100,-50, -90,-60, -80,-80, -70,-60, -60,-50, -50,-50, -40,-60, }
+
+
+-- draw the octagon
+myBatsymbol = display.newPolygon( BatsymbolX, BatsymbolY, BatsymbolVertices )
+
+--rotated the batsymbol
+myBatsymbol.rotation = 180
+
+--set stroke with of the Bat symbol
+myBatsymbol.strokeWidth = 6
+
+--set the stroke color
+myBatsymbol:setStrokeColor( 0, 0, 0 )
+
+myBatsymbol:setFillColor( 1, 1, 0)
 
 
 
